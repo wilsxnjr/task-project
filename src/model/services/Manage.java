@@ -9,5 +9,6 @@ public interface Manage {
     List<Task> getTasks();
     void createTask(Task task);
     void getAllTasks();
+    Task getById(int id);
 
 }

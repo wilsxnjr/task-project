@@ -18,7 +18,8 @@ public class Program {
 
         Manage manage = new ManageService();
 
-        manage.createTask(new Task(1, "Study", "Study java", LocalDateTime.now(), LocalDateTime.of(2026, 2, 12, 14, 30, 30), Status.PENDING));
+        manage.createTask(new Task(2, "Study", "Study java", LocalDateTime.now(), LocalDateTime.of(2026, 2, 12, 14, 30, 30), Status.PENDING));
 
+        System.out.println(manage.getById(2));
     }
 }

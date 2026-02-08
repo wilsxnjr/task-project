@@ -57,4 +57,14 @@ public class ManageService implements Manage {
             System.out.println("Error: " + e.getMessage());
         }
     }
+
+    @Override
+    public Task getById(int id) {
+        for (Task task : getTasks()) {
+            if (task.getId() == id) {
+                return task;
+            }
+        }
+        return null;
+    }
 }

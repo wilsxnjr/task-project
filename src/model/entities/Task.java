@@ -5,7 +5,7 @@ import model.enums.Status;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Task {
+public class Task implements Comparable<Task> {
 
     private static DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
@@ -81,5 +81,11 @@ public class Task {
                 + String.format("%s, ", fmt.format(createdAt))
                 + String.format("%s, ", fmt.format(dueDate))
                 + status;
+    }
+
+
+    @Override
+    public int compareTo(Task other) {
+        return getId().compareTo(other.getId());
     }
 }
