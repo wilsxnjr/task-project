@@ -33,7 +33,7 @@ public class ManageService implements Manage {
 
     @Override
     public void createTask(Task task) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
             bw.write(task.toString());
             bw.newLine();
         } catch (IOException e) {
@@ -66,5 +66,21 @@ public class ManageService implements Manage {
             }
         }
         return null;
+    }
+
+    @Override
+    public void setAsCompleted(int id) {
+        List<Task> list = getTasks();
+       try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
+           for (Task task : list) {
+               if (task.getId() == id) {
+                   task.setStatus(Status.COMPLETED);
+               }
+               bw.write(task.toString());
+               bw.newLine();
+           }
+       } catch (IOException e) {
+           System.out.println("Error: " + e.getMessage());
+       }
     }
 }

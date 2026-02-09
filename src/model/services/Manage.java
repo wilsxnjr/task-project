@@ -10,5 +10,6 @@ public interface Manage {
     void createTask(Task task);
     void getAllTasks();
     Task getById(int id);
+    void setAsCompleted(int id);
 
 }
